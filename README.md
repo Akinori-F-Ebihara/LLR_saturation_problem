@@ -14,31 +14,27 @@ sequential density ratio estimation (SDRE)
 ## Code  
 The models can readily be replaced with a conventional SDRE algorithm.  
 
+## Fixed Parameters
+| Parameter | Gaussian  | SiW  | UCF101 | HMDB51 | 
+| :---:   | :---: | :---:   | :---: | :---:   | 
+| LSTM dim. | 64 | 256 | 256 | 256
+| Markov order | 49 | 10 | 10 | 10 | 10 |
+| Feature dim $d_{\mathrm{feat}}$ | 128 | 512 | 2048 | 2048 | 2048 |
+| Batch size | 100 | 83 | 31 | 25 |
+
 ## Hyperparameter Search Space
-Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
---- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
-Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
-Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
+The table below summarizes the hyperparameter search space that is used in the early classification experiments on real datasets (SiW, UCF101, and HMDB51). Note that the head size and number of attention heads are Transformer-specific.
 
-| Attempt | #1    | #2    |
-| :---:   | :---: | :---: |
-| Seconds | 301   | 283   |
+| Parameter | Search space    | 
+| :---:   | :---: | 
+| Weight decay | {0.0, 0.00001, 0.0001, 0.001}   | 
+| Learning rate | {0.0001, 0.001, 0.01}   | 
+| Dropout | {0.0, 0.1, 0.2, 0.3, 0.4}  | 
+| Optimizer | {Adam, RMSprop}  | 
+| LLRe loss ratio | {0.4, 0.5, 0.6, 0.6, 0.7, 0.8, 0.9, 1.0} | 
+| Number of Transformer blocks | {1, 2} | 
+| Head size | {8, 16, 32} | 
+| Number of attention heads | {1, 2, 3}  | 
+| Feedforward dim. | {8, 16, 32}  | 
+| MLP units | {8, 16, 32}  | 
 
-% \begin{table}[htbp]
-% \centering
-% % \small
-% \caption{Hyperparameter search space. Note that the head size and number of attention heads are Transformer-specific.}
-%   \begin{tabular}{cc}
-%   Hyperparameter & Search space \\
-%   \midrule
-%   Weight decay &  $\{0.0, 10^{-5}, 10^{-4}, 10^{-3}\}$\\
-%   Learning rate & $\{10^{-4}, 10^{-3}, 10^{-2}\}$  \\
-%   Dropout & $\{0.0, 0.1, 0.2, 0.3, 0.4\}$  \\
-%   Optimizer & $\{$Adam, RMSprop$\}$   \\
-%   LLRe loss ratio & $\{$0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0$\}$   \\
-%   Head size & $\{8, 16, 32\}$  \\
-%   Num. heads ($n$)& $\{1, 2, 3\}$  \\
-%   \bottomrule
-%   \end{tabular}%
-% \label{tab:hyperparameters}%
-% \end{table}%
