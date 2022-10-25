@@ -1,9 +1,13 @@
 # LLR saturation problem
 
-This is an official repository of the paper, _Toward Asymptotic Optimality: Sequential Unsupervised Regression of Density Ratio for Early Classification_. In the paper, we defined and solved the _log likelihood ratio (LLR) saturation problem_ that hamper the Sequential Probability Ratio Test (SPRT) from reaching the theoretically-proven asymptotic optimality. Tensorflow implementations of the two proposed models, B2Bsqrt-TANDEM and TANDEformer, are found in the repo. We also list the detailed hyperparameter search space that is used to generate the experimental results.  
+This is an official repository of the paper, _Toward Asymptotic Optimality: Sequential Unsupervised Regression of Density Ratio for Early Classification_. Tensorflow implementations of the two proposed models, __B2Bsqrt-TANDEM__ and __TANDEMformer__, are found in the repo. We also list the detailed experimental setups that is used to generate the experimental results.  
 
 ## Introduction
-sequential density ratio estimation (SDRE)  
+Conventional Sequential density ratio estimation (SDRE) algorithms can fail to estimate DRs precisely due to the internal overnormalization problem, which prevents the DR-based sequential algorithm, Sequential Probability Ratio Test (SPRT), from reaching its asymptotic Bayes optimality. We formulate this DR, or equivalently, log likelihood ratio (LLR) estimation problem, as the ___log likelihood ratio (LLR) saturation problem___ and solved it with highly effective yet simple algorithms, __B2Bsqrt-TANDEM__ and __TANDEMformer__. They prevent the problem source, _overnormalization_, for precise unsupervised regression of the LLRs, providing an essential step toward the asymptotic optimality.
+
+
+## Requirements
+This article is best read with the Chrome browser with [MathJax Plugin for GitHub](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima?hl=en).  
 
 ## Tested Environment
 - Python 3.8
