@@ -6,8 +6,8 @@ This is an official repository of the paper, _Toward Asymptotic Optimality: Sequ
 Conventional Sequential density ratio estimation (SDRE) algorithms can fail to estimate DRs precisely due to the internal overnormalization problem, which prevents the DR-based sequential algorithm, Sequential Probability Ratio Test (SPRT), from reaching its asymptotic Bayes optimality. We formulate this DR, or equivalently, log likelihood ratio (LLR) estimation problem, as the ___log likelihood ratio (LLR) saturation problem___ and solved it with highly effective yet simple algorithms, __B2Bsqrt-TANDEM__ and __TANDEMformer__. They prevent the problem source, _overnormalization_, for precise unsupervised regression of the LLRs, providing an essential step toward the asymptotic optimality.
 
 
-## Requirements
-This article is best read with the Chrome browser with [MathJax Plugin for GitHub](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima?hl=en).  
+<!-- ## Requirements
+This article is best read with the Chrome browser with [MathJax Plugin for GitHub](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima?hl=en).   -->
 
 ## Tested Environment
 - Python 3.8
