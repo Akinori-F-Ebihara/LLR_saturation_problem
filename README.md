@@ -12,10 +12,16 @@ sequential density ratio estimation (SDRE)
 - cuDNN 8.3.3.40
 
 ## Code  
-The models can readily be replaced with a conventional SDRE algorithm.  
+This repo contains the code of two SDRE algorithms:  
+
+- B2Bsqrt_TANDEM.py  
+- TANDEMformer.py  
+
+The code is based on Tensorflow and readily be replaced with a conventional SDRE model. Both model take a tensor with shape (batch size, effective duration, feature dimension $d_{\mathrm{feat}}$) as an input, and output a tensor with shape (batch size, effective duration, number of classes). Note that the effective duration is defined with the TANDEM formula's Markov assumption $N$, which can be shorter than the length of time series, $T$.
 
 ## Fixed Parameters
-| Parameter | Gaussian  | SiW  | UCF101 | HMDB51 | 
+To have a fair comparison of our proposed models and baselines, the parameters in the table below are fixed and used in all the models. All other hyperparameters are independently optimized with Optuna framework.
+| Parameter | Sequential Gaussian  | SiW  | UCF101 | HMDB51 | 
 | :---:   | :---: | :---:   | :---: | :---:   | 
 | LSTM dim. | 64 | 256 | 256 | 256
 | Markov order | 49 | 10 | 10 | 10 | 10 |
@@ -23,7 +29,7 @@ The models can readily be replaced with a conventional SDRE algorithm.
 | Batch size | 100 | 83 | 31 | 25 |
 
 ## Hyperparameter Search Space
-The table below summarizes the hyperparameter search space that is used in the early classification experiments on real datasets (SiW, UCF101, and HMDB51). Note that the head size and number of attention heads are Transformer-specific.
+The table below summarizes the hyperparameter search space that is used in the early classification experiments on real datasets (SiW, UCF101, and HMDB51). Note that the number of Transformer blocks, head size, number of attention heads, Feedforward dim., and MLP units are Transformer-specific parameters.
 
 | Parameter | Search space    | 
 | :---:   | :---: | 
