@@ -16,16 +16,18 @@ This article is best read with the Chrome browser with [MathJax Plugin for GitHu
 - cuDNN 8.3.3.40
 
 ## Code  
-This repo contains the code of two SDRE algorithms:  
+This repo contains the code of the two tenporal integrators (TIs) for SDRE:  
 
 - B2Bsqrt_TANDEM.py  
 - TANDEMformer.py  
 
-The code is based on Tensorflow and readily be replaced with a conventional SDRE model. Both model take a tensor with shape (batch size, effective duration, feature dimension $d_{\mathrm{feat}}$) as an input, and output a tensor with shape (batch size, effective duration, number of classes). Note that the effective duration is defined with the sliding window size $w$ (or equivalently, TANDEM formula's Markov assumption $N+1$), which can be shorter than the length of time series, $T$.
+See the conceptural figure below and the original paper for detailed discription of the models. The code is based on Tensorflow and readily be replaced with a conventional SDRE model. Both model take a tensor with shape (batch size, effective duration $t_e$, feature dimension $d_{\mathrm{feat}}$) as an input, and output a tensor with shape (batch size, effective duration $t_e$, number of classes). Note that $t_e$ is defined with the maximum sliding window size $w$ (or equivalently, TANDEM formula's Markov assumption $N+1$), which can be shorter than the length of time series, $T$.  
 
 <div align="center">
 <img src ="./Conceptual_figure_LLRsaturation.png" width=100%>
 </div>
+
+All the outputs are used to compute the multiplet cross entropy loss if applicable, while the last two feature vectors out of the $t_e$ number of the outputs (corresponding to the two subsampled feature vectors with length $N$ and $N+1$ in the figure above) are used to compute the TANDEM formula. 
 
 ## Fixed Parameters
 To have a fair comparison of our proposed models and baselines, the parameters in the table below are fixed and used in all the models. All other hyperparameters are independently optimized with Optuna framework.
