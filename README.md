@@ -1,4 +1,4 @@
-# LLR saturation problem
+# LLR saturation problem and its solution
 
 This is an official repository of the paper, _Toward Asymptotic Optimality: Sequential Unsupervised Regression of Density Ratio for Early Classification_. Tensorflow implementations of the two proposed models, __B2Bsqrt-TANDEM__ and __TANDEMformer__, are in the repo. We also list the detailed experimental setups that is used to generate the results.  
 
