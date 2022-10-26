@@ -23,6 +23,10 @@ This repo contains the code of two SDRE algorithms:
 
 The code is based on Tensorflow and readily be replaced with a conventional SDRE model. Both model take a tensor with shape (batch size, effective duration, feature dimension $d_{\mathrm{feat}}$) as an input, and output a tensor with shape (batch size, effective duration, number of classes). Note that the effective duration is defined with the sliding window size $w$ (or equivalently, TANDEM formula's Markov assumption $N+1$), which can be shorter than the length of time series, $T$.
 
+<div align="center">
+<img src ="./Conceptual_figure_LLRsaturationprob.pdf" width=75%>
+</div>
+
 ## Fixed Parameters
 To have a fair comparison of our proposed models and baselines, the parameters in the table below are fixed and used in all the models. All other hyperparameters are independently optimized with Optuna framework.
 | Parameter | Sequential Gaussian  | SiW  | UCF101 | HMDB51 | 
