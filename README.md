@@ -3,7 +3,7 @@
 This is an official repository of the paper, _Toward Asymptotic Optimality: Sequential Unsupervised Regression of Density Ratio for Early Classification_. Tensorflow implementations of the two proposed models, __B2Bsqrt-TANDEM__ and __TANDEMformer__, are in the repo. We also list the detailed experimental setups used to generate the results.  
 
 ## Introduction
-Conventional Sequential density ratio estimation (SDRE) algorithms can fail to estimate DRs precisely due to the internal overnormalization problem, which prevents the DR-based sequential algorithm, Sequential Probability Ratio Test (SPRT), from reaching its asymptotic Bayes optimality. We formulate this DR, or equivalently, log likelihood ratio (LLR) estimation problem, as the ___log likelihood ratio (LLR) saturation problem___ and solved it with highly effective yet simple algorithms, __B2Bsqrt-TANDEM__ and __TANDEMformer__. They prevent the problem source, _overnormalization_, for precise unsupervised regression of the LLRs, providing an essential step toward the asymptotic optimality.
+Conventional Sequential density ratio estimation (SDRE) algorithms can fail to estimate DRs precisely due to the internal overnormalization problem, which prevents the DR-based sequential algorithm, Sequential Probability Ratio Test (SPRT), from reaching its asymptotic Bayes optimality. We formulate this DR, or equivalently, log-likelihood ratio (LLR) estimation problem, as the ___log likelihood ratio (LLR) saturation problem___ and solved it with highly effective yet simple algorithms, __B2Bsqrt-TANDEM__ and __TANDEMformer__. They prevent the problem source, _overnormalization_, for precise unsupervised regression of the LLRs, providing an essential step toward the asymptotic optimality.
 
 
 <!-- ## Requirements
@@ -16,12 +16,12 @@ This article is best read with the Chrome browser with [MathJax Plugin for GitHu
 - cuDNN 8.3.3.40
 
 ## Code  
-This repo contains the code of the two tenporal integrators (TIs) for SDRE:  
+This repo contains the code of the two temporal integrators (TIs) for SDRE:  
 
 - B2Bsqrt_TANDEM.py  
 - TANDEMformer.py  
 
-See the conceptural figure below and the original paper for detailed discription of the models. The code is based on Tensorflow and readily be replaced with a conventional SDRE model. Both model take a tensor with shape (batch size, effective duration $t_e$, feature dimension $d_{\mathrm{feat}}$) as an input, and output a tensor with shape (batch size, effective duration $t_e$, number of classes). Note that $t_e$ is defined with the maximum sliding window size $w$ (or equivalently, TANDEM formula's Markov assumption $N+1$), which can be shorter than the length of time series, $T$.  
+See the conceptual figure below and the original paper for a detailed description of the models. The code is based on Tensorflow and readily be replaced with a conventional SDRE model. Both models take a tensor with shape (batch size, effective duration $t_e$, feature dimension $d_{\mathrm{feat}}$) as an input and output a tensor with shape (batch size, effective duration $t_e$, number of classes). Note that $t_e$ is defined with the maximum sliding window size $w$ (or equivalently, TANDEM formula's Markov assumption $N+1$), which can be shorter than the length of the time series, $T$.  
 
 <div align="center">
 <img src ="./Conceptual_figure_LLRsaturation.png" width=100%>
