@@ -1,6 +1,6 @@
 # LLR saturation problem
 
-This is an official repository of the paper, _Toward Asymptotic Optimality: Sequential Unsupervised Regression of Density Ratio for Early Classification_. Tensorflow implementations of the two proposed models, __B2Bsqrt-TANDEM__ and __TANDEMformer__, are found in the repo. We also list the detailed experimental setups that is used to generate the experimental results.  
+This is an official repository of the paper, _Toward Asymptotic Optimality: Sequential Unsupervised Regression of Density Ratio for Early Classification_. Tensorflow implementations of the two proposed models, __B2Bsqrt-TANDEM__ and __TANDEMformer__, are in the repo. We also list the detailed experimental setups that is used to generate the results.  
 
 ## Introduction
 Conventional Sequential density ratio estimation (SDRE) algorithms can fail to estimate DRs precisely due to the internal overnormalization problem, which prevents the DR-based sequential algorithm, Sequential Probability Ratio Test (SPRT), from reaching its asymptotic Bayes optimality. We formulate this DR, or equivalently, log likelihood ratio (LLR) estimation problem, as the ___log likelihood ratio (LLR) saturation problem___ and solved it with highly effective yet simple algorithms, __B2Bsqrt-TANDEM__ and __TANDEMformer__. They prevent the problem source, _overnormalization_, for precise unsupervised regression of the LLRs, providing an essential step toward the asymptotic optimality.
@@ -21,7 +21,7 @@ This repo contains the code of two SDRE algorithms:
 - B2Bsqrt_TANDEM.py  
 - TANDEMformer.py  
 
-The code is based on Tensorflow and readily be replaced with a conventional SDRE model. Both model take a tensor with shape (batch size, effective duration, feature dimension $d_{\mathrm{feat}}$) as an input, and output a tensor with shape (batch size, effective duration, number of classes). Note that the effective duration is defined with the TANDEM formula's Markov assumption $N$, which can be shorter than the length of time series, $T$.
+The code is based on Tensorflow and readily be replaced with a conventional SDRE model. Both model take a tensor with shape (batch size, effective duration, feature dimension $d_{\mathrm{feat}}$) as an input, and output a tensor with shape (batch size, effective duration, number of classes). Note that the effective duration is defined with the sliding window size $w$ (or equivalently, TANDEM formula's Markov assumption $N+1$), which can be shorter than the length of time series, $T$.
 
 ## Fixed Parameters
 To have a fair comparison of our proposed models and baselines, the parameters in the table below are fixed and used in all the models. All other hyperparameters are independently optimized with Optuna framework.
