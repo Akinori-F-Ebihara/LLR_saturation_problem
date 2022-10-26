@@ -1,4 +1,4 @@
-# LLR saturation problem and its solution
+# LLR Saturation Problem and its Solution
 
 This is an official repository of the paper, _Toward Asymptotic Optimality: Sequential Unsupervised Regression of Density Ratio for Early Classification_. Tensorflow implementations of the two proposed models, __B2Bsqrt-TANDEM__ and __TANDEMformer__, are in the repo. We also list the detailed experimental setups used to generate the results.  
 
@@ -27,10 +27,10 @@ See the conceptual figure below and the original paper for a detailed descriptio
 <img src ="./Conceptual_figure_LLRsaturation.png" width=100%>
 </div>
 
-All the outputs are used to compute the multiplet cross entropy loss if applicable, while the last two feature vectors out of the $t_e$ number of the outputs (corresponding to the two subsampled feature vectors with length $N$ and $N+1$ in the figure above) are used to compute the TANDEM formula. 
+All the outputs are used to compute the multiplet cross-entropy loss if applicable, while the last two feature vectors out of the $t_e$ number of the outputs (corresponding to the two subsampled feature vectors with length $N$ and $N+1$ in the figure above) are used to compute the TANDEM formula. 
 
 ## Fixed Parameters
-To have a fair comparison of our proposed models and baselines, the parameters in the table below are fixed and used in all the models. All other hyperparameters are independently optimized with Optuna framework.
+The parameters in the table are fixed and used in all the models in order to have a fair comparison of our proposed models and baselines. All other hyperparameters are independently optimized with the Optuna framework.
 | Parameter | Sequential Gaussian  | SiW  | UCF101 | HMDB51 | 
 | :---:   | :---: | :---:   | :---: | :---:   | 
 | LSTM dim. | 64 | 256 | 256 | 256
@@ -39,7 +39,7 @@ To have a fair comparison of our proposed models and baselines, the parameters i
 | Batch size | 100 | 83 | 31 | 25 |
 
 ## Hyperparameter Search Space
-The table below summarizes the hyperparameter search space that is used in the early classification experiments on real datasets (SiW, UCF101, and HMDB51). Note that the number of Transformer blocks, head size, number of attention heads, Feedforward dim., and MLP units are Transformer-specific parameters.
+The table below summarizes the hyperparameter search space used in the early classification experiments on real datasets (SiW, UCF101, and HMDB51). Note that the number of Transformer blocks, head size, number of attention heads, Feedforward dim., and MLP units are Transformer-specific parameters.
 
 | Parameter | Search space    | 
 | :---:   | :---: | 
